@@ -64,14 +64,16 @@ Tvheadend po stažení ikony ukládá soubory do své persistentní diskové mez
 
 **Při každé vizuální opravě, změně stylu nebo nasazení nových verzí piconů je nutné vyčistit imagecache Tvheadendu:**
 
-* **Přes CaC nástroj v repozitáři `home-infrastructure` (Doporučeno):**
+* **Přímo na serveru Tvheadendu (lokálně nebo přes terminál):**
   ```bash
-  python3 tools/tvheadend_sync.py --purge-imagecache
+  sudo systemctl stop tvheadend
+  sudo rm -rf /home/hts/.hts/tvheadend/imagecache/data/* /home/hts/.hts/tvheadend/imagecache/meta/*
+  sudo systemctl start tvheadend
   ```
 
-* **Nebo přímo přes SSH na serveru Tvheadend:**
+* **Nebo jako jednořádkový příkaz přes vzdálené SSH:**
   ```bash
-  ssh ondrej@10.0.10.22 'sudo bash -c "systemctl stop tvheadend && rm -rf /home/hts/.hts/tvheadend/imagecache/data/* /home/hts/.hts/tvheadend/imagecache/meta/* && systemctl start tvheadend"'
+  ssh <uzivatel>@<tvheadend-ip> 'sudo bash -c "systemctl stop tvheadend && rm -rf /home/hts/.hts/tvheadend/imagecache/data/* /home/hts/.hts/tvheadend/imagecache/meta/* && systemctl start tvheadend"'
   ```
 
 Po restartu si Tvheadend okamžitě znovu stáhne aktuální čisté verze všech log z GitHub Pages CDN a rozešle je do připojených klientů (Apple TV TvhClient, Kodi atd.).
