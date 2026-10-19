@@ -80,52 +80,63 @@ Po restartu si Tvheadend okamžitě znovu stáhne aktuální čisté verze všec
 
 ## 📺 Pokrytí stanic (100% stav DVB-T2 v ČR)
 
-Repozitář obsahuje **všech 65 vysílaných DVB-T2 stanic a rádií**:
+Repozitář pokrývá **všech 65 vysílaných DVB-T2 stanic a rádií v ČR**. Pro okamžitou lidskou kontrolu (Human-in-the-loop review) je níže sestaven **vždy aktuální vizuální render všech stanic vedle sebe**:
 
-| Stanice / Rádio | Normalizovaný soubor | Multiplex | Stav loga |
-|---|---|---|:---:|
-| **ČT 1 HD T2** | `ct1hdt2.png` | MUX 21 | ✅ 640 + 1024 |
-| **ČT 2 HD T2** | `ct2hdt2.png` | MUX 21 | ✅ 640 + 1024 |
-| **ČT 24 HD T2** | `ct24hdt2.png` | MUX 21 | ✅ 640 + 1024 |
-| **ČT Sport HD T2** | `ctsporthdt2.png` | MUX 21 | ✅ 640 + 1024 |
-| **ČT :D / Art HD T2** | `ctdarthdt2.png` | MUX 21 | ✅ 640 + 1024 |
-| **Nova** | `nova.png` | MUX 24 | ✅ 640 + 1024 |
-| **Nova Cinema** | `novacinema.png` | MUX 24 | ✅ 640 + 1024 |
-| **Nova Action** | `novaaction.png` | MUX 24 | ✅ 640 + 1024 |
-| **Nova Fun** | `novafun.png` | MUX 24 | ✅ 640 + 1024 |
-| **Nova Lady** | `novalady.png` | MUX 24 | ✅ 640 + 1024 |
-| **Nova Krimi** | `novakrimi.png` | MUX 24 | ✅ 640 + 1024 |
-| **Prima** | `prima.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima COOL** | `primacool.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima MAX** | `primamax.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima KRIMI** | `primakrimi.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima LOVE** | `primalove.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima ZOOM** | `primazoom.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima STAR** | `primastar.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima SHOW** | `primashow.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima +1** | `prima1.png` | MUX 22 | ✅ 640 + 1024 |
-| **Prima sport** | `primasport.png` | MUX 24 | ✅ 640 + 1024 |
-| **CNN Prima News** | `cnnprimanews.png` | MUX 22 | ✅ 640 + 1024 |
-| **Warner TV** | `warnertv.png` / `test4.png` | MUX 23 | ✅ 640 + 1024 |
-| **A11** | `a11.png` | MUX 23 | ✅ 640 + 1024 |
-| **Seznam.cz TV** | `seznamcztv.png` | MUX 23 | ✅ 640 + 1024 |
-| **Hit TV** | `hittv.png` / `test5.png` | MUX 24 | ✅ 640 + 1024 |
-| **ABC TV** | `abctv.png` | MUX 24 | ✅ 640 + 1024 |
-| **TV Barrandov** | `tvbarrandov.png` | MUX 23 | ✅ 640 + 1024 |
-| **Kino Barrandov** | `kinobarrandov.png` | MUX 23 | ✅ 640 + 1024 |
-| **Barrandov Krimi** | `barrandovkrimi.png` | MUX 23 | ✅ 640 + 1024 |
-| **Šlágr Originál** | `slageroriginal.png` | MUX 24 | ✅ 640 + 1024 |
-| **Šlágr Muzika** | `slagermuzika.png` | MUX 24 | ✅ 640 + 1024 |
-| **JTV (Jihočeská TV)** | `jtv.png` | MUX 24 | ✅ 640 + 1024 |
-| **JČ1 & JČ2** | `jc1.png`, `jc2.png` | RS 18 | ✅ 640 + 1024 |
-| **Rádio Impuls** | `radioimpuls.png` | MUX 22 | ✅ 640 + 1024 |
-| **Český Impuls** | `ceskyimpuls.png` | MUX 24 | ✅ 640 + 1024 |
-| **ČRo Pohoda** | `cropohodat2.png` | MUX 21 | ✅ 640 + 1024 |
-| **ČRo Radiožurnál Sport**| `crorzsportt2.png` | MUX 21 | ✅ 640 + 1024 |
-| **Radio Čas & Čas Rock** | `radiocas.png`, `radiocasrock.png` | MUX 24 | ✅ 640 + 1024 |
-| **Radio Dechovka** | `radiodechovka.png` | MUX 23 | ✅ 640 + 1024 |
-| **RockZone 105.9** | `rockzone1059.png` | MUX 24 | ✅ 640 + 1024 |
-| **Ukrajinské Rádio** | `ukrajinskeradio.png` | MUX 23 | ✅ 640 + 1024 |
+<p align="center">
+  <a href="https://onhala.github.io/picons/">
+    <img src="docs/dvbt2_contact_sheet.png" alt="Aktuální kontaktní list všech 65 DVB-T2 piconů" width="100%">
+  </a>
+  <br>
+  <em>💡 Kliknutím na přehled otevřete <a href="https://onhala.github.io/picons/">živou interaktivní galerii</a> s fulltextovým vyhledáváním a přepínačem tmavého/světlého režimu.</em>
+</p>
+
+### Detailní přehled stanic a multiplexů
+
+| Ikona | Stanice / Rádio | Normalizovaný soubor | Multiplex | Stav loga |
+|:---:|---|---|:---:|:---:|
+| <img src="640/ct1hdt2.png" width="36" height="36" alt="ČT 1 HD T2"> | **ČT 1 HD T2** | `ct1hdt2.png` | MUX 21 | ✅ 640 + 1024 |
+| <img src="640/ct2hdt2.png" width="36" height="36" alt="ČT 2 HD T2"> | **ČT 2 HD T2** | `ct2hdt2.png` | MUX 21 | ✅ 640 + 1024 |
+| <img src="640/ct24hdt2.png" width="36" height="36" alt="ČT 24 HD T2"> | **ČT 24 HD T2** | `ct24hdt2.png` | MUX 21 | ✅ 640 + 1024 |
+| <img src="640/ctsporthdt2.png" width="36" height="36" alt="ČT Sport HD T2"> | **ČT Sport HD T2** | `ctsporthdt2.png` | MUX 21 | ✅ 640 + 1024 |
+| <img src="640/ctdarthdt2.png" width="36" height="36" alt="ČT :D / Art HD T2"> | **ČT :D / Art HD T2** | `ctdarthdt2.png` | MUX 21 | ✅ 640 + 1024 |
+| <img src="640/nova.png" width="36" height="36" alt="Nova"> | **Nova** | `nova.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/novacinema.png" width="36" height="36" alt="Nova Cinema"> | **Nova Cinema** | `novacinema.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/novaaction.png" width="36" height="36" alt="Nova Action"> | **Nova Action** | `novaaction.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/novafun.png" width="36" height="36" alt="Nova Fun"> | **Nova Fun** | `novafun.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/novakrimi.png" width="36" height="36" alt="Nova Krimi"> | **Nova Krimi** | `novakrimi.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/novalady.png" width="36" height="36" alt="Nova Lady"> | **Nova Lady** | `novalady.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/prima.png" width="36" height="36" alt="Prima"> | **Prima** | `prima.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primacool.png" width="36" height="36" alt="Prima COOL"> | **Prima COOL** | `primacool.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primamax.png" width="36" height="36" alt="Prima MAX"> | **Prima MAX** | `primamax.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primakrimi.png" width="36" height="36" alt="Prima KRIMI"> | **Prima KRIMI** | `primakrimi.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primalove.png" width="36" height="36" alt="Prima LOVE"> | **Prima LOVE** | `primalove.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primazoom.png" width="36" height="36" alt="Prima ZOOM"> | **Prima ZOOM** | `primazoom.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primastar.png" width="36" height="36" alt="Prima STAR"> | **Prima STAR** | `primastar.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primashow.png" width="36" height="36" alt="Prima SHOW"> | **Prima SHOW** | `primashow.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/prima1.png" width="36" height="36" alt="Prima +1"> | **Prima +1** | `prima1.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/primasport.png" width="36" height="36" alt="Prima sport"> | **Prima sport** | `primasport.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/cnnprimanews.png" width="36" height="36" alt="CNN Prima News"> | **CNN Prima News** | `cnnprimanews.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/warnertv.png" width="36" height="36" alt="Warner TV"> | **Warner TV** | `warnertv.png` / `test4.png` | MUX 23 | ✅ 640 + 1024 |
+| <img src="640/a11.png" width="36" height="36" alt="A11"> | **A11** | `a11.png` | MUX 23 | ✅ 640 + 1024 |
+| <img src="640/seznamcztv.png" width="36" height="36" alt="Seznam.cz TV"> | **Seznam.cz TV** | `seznamcztv.png` | MUX 23 | ✅ 640 + 1024 |
+| <img src="640/hittv.png" width="36" height="36" alt="Hit TV"> | **Hit TV** | `hittv.png` / `test5.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/abctv.png" width="36" height="36" alt="ABC TV"> | **ABC TV** | `abctv.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/tvbarrandov.png" width="36" height="36" alt="TV Barrandov"> | **TV Barrandov** | `tvbarrandov.png` | MUX 23 | ✅ 640 + 1024 |
+| <img src="640/kinobarrandov.png" width="36" height="36" alt="Kino Barrandov"> | **Kino Barrandov** | `kinobarrandov.png` | MUX 23 | ✅ 640 + 1024 |
+| <img src="640/barrandovkrimi.png" width="36" height="36" alt="Barrandov Krimi"> | **Barrandov Krimi** | `barrandovkrimi.png` | MUX 23 | ✅ 640 + 1024 |
+| <img src="640/slageroriginal.png" width="36" height="36" alt="Šlágr Originál"> | **Šlágr Originál** | `slageroriginal.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/slagermuzika.png" width="36" height="36" alt="Šlágr Muzika"> | **Šlágr Muzika** | `slagermuzika.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/jtv.png" width="36" height="36" alt="JTV"> | **JTV (Jihočeská TV)** | `jtv.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/jc1.png" width="36" height="36" alt="JČ1"> | **JČ1 & JČ2** | `jc1.png`, `jc2.png` | RS 18 | ✅ 640 + 1024 |
+| <img src="640/radioimpuls.png" width="36" height="36" alt="Rádio Impuls"> | **Rádio Impuls** | `radioimpuls.png` | MUX 22 | ✅ 640 + 1024 |
+| <img src="640/ceskyimpuls.png" width="36" height="36" alt="Český Impuls"> | **Český Impuls** | `ceskyimpuls.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/cropohodat2.png" width="36" height="36" alt="ČRo Pohoda"> | **ČRo Pohoda** | `cropohodat2.png` | MUX 21 | ✅ 640 + 1024 |
+| <img src="640/crorzsportt2.png" width="36" height="36" alt="ČRo Radiožurnál Sport"> | **ČRo Radiožurnál Sport**| `crorzsportt2.png` | MUX 21 | ✅ 640 + 1024 |
+| <img src="640/radiocas.png" width="36" height="36" alt="Radio Čas"> | **Radio Čas & Čas Rock** | `radiocas.png`, `radiocasrock.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/radiodechovka.png" width="36" height="36" alt="Radio Dechovka"> | **Radio Dechovka** | `radiodechovka.png` | MUX 23 | ✅ 640 + 1024 |
+| <img src="640/rockzone1059.png" width="36" height="36" alt="RockZone 105.9"> | **RockZone 105.9** | `rockzone1059.png` | MUX 24 | ✅ 640 + 1024 |
+| <img src="640/ukrajinskeradio.png" width="36" height="36" alt="Ukrajinské Rádio"> | **Ukrajinské Rádio** | `ukrajinskeradio.png` | MUX 23 | ✅ 640 + 1024 |
+
 
 ---
 

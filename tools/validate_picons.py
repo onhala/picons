@@ -13,6 +13,7 @@ Provádí exaktní geometrické, kolorimetrické a strukturální testy všech T
 
 import os
 import sys
+import math
 import argparse
 from pathlib import Path
 from PIL import Image, ImageStat
@@ -256,15 +257,66 @@ def generate_gallery():
     print(f"✨ Vygenerována interaktivní galerie: {gallery_file}")
 
 
+# Seznam všech 65 aktivních DVB-T2 stanic pro generování kontaktního listu
+DVBT2_CHANNELS = [
+    "ct1hdt2.png", "ct2hdt2.png", "ct24hdt2.png", "ctsporthdt2.png", "ctdarthdt2.png",
+    "nova.png", "novacinema.png", "novaaction.png", "novafun.png", "novakrimi.png",
+    "novalady.png", "prima.png", "primacool.png", "primamax.png", "primakrimi.png",
+    "primazoom.png", "primalove.png", "cnnprimanews.png", "primasport.png", "primashow.png",
+    "primastar.png", "prima1.png", "jtv.png", "jc1.png", "jc2.png",
+    "hittv.png", "seznamcztv.png", "warnertv.png", "jojfamily.png", "csmystery.png",
+    "spektrumhome.png", "a11.png", "ocko.png", "ockostar.png", "retromusictv.png",
+    "rebel.png", "relax.png", "slageroriginal.png", "slagermuzika.png", "tvbarrandov.png",
+    "barrandovkrimi.png", "kinobarrandov.png", "tvnoe.png", "abctv.png", "televizepresantenu.png",
+    "naladtesenadigitalnivysilanicra.png", "radioimpuls.png", "radiodechovka.png", "ukrajinskeradio.png", "rockzone1059.png",
+    "ceskyimpuls.png", "cropohodat2.png", "croradiowavet2.png", "croradiozurnalt2.png", "crorzsportt2.png",
+    "croplust2.png", "crovltavat2.png", "crojazzt2.png", "crodvojkat2.png", "croradiojuniort2.png",
+    "croddurt2.png", "radiocasrock.png", "radiocas.png", "dbtest1.png", "dbtest2.png"
+]
+
+
+def generate_contact_sheet():
+    docs_dir = REPO_ROOT / "docs"
+    docs_dir.mkdir(exist_ok=True)
+    out_file = docs_dir / "dvbt2_contact_sheet.png"
+
+    cols = 10
+    rows = math.ceil(len(DVBT2_CHANNELS) / cols)
+    tile_size = 120
+    padding = 16
+    gap = 12
+
+    img_w = padding * 2 + cols * tile_size + (cols - 1) * gap
+    img_h = padding * 2 + rows * tile_size + (rows - 1) * gap
+
+    sheet = Image.new("RGBA", (img_w, img_h), (18, 18, 18, 255))
+
+    for idx, fname in enumerate(DVBT2_CHANNELS):
+        c = idx % cols
+        r = idx // cols
+        x = padding + c * (tile_size + gap)
+        y = padding + r * (tile_size + gap)
+
+        p = DIR_640 / fname
+        if p.exists():
+            im = Image.open(p).convert("RGBA")
+            thumb = im.resize((tile_size, tile_size), Image.Resampling.LANCZOS)
+            sheet.paste(thumb, (x, y), thumb)
+
+    sheet.save(out_file, "PNG", optimize=True)
+    print(f"🖼️ Vygenerován aktuální kontaktní list DVB-T2 stanic: {out_file}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Picons Quality Assurance Validator")
     parser.add_argument("--fix", action="store_true", help="Automaticky opravit paritu a rozměry")
-    parser.add_argument("--gallery", action="store_true", help="Vygenerovat HTML galerii")
+    parser.add_argument("--gallery", action="store_true", help="Vygenerovat HTML galerii a kontaktní list")
     args = parser.parse_args()
 
     success = validate_all(fix=args.fix)
     if args.gallery or success:
         generate_gallery()
+        generate_contact_sheet()
 
     if not success:
         sys.exit(1)
