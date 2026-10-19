@@ -18,9 +18,10 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 REPO_ROOT = Path(__file__).resolve().parent
 DIR_640 = REPO_ROOT / "640"
 DIR_1024 = REPO_ROOT / "1024"
-TMP_DIR = Path("/tmp/picon_sources")
+RAW_DIR = REPO_ROOT / "source" / "raw"
+TMP_DIR = RAW_DIR
 
-TMP_DIR.mkdir(parents=True, exist_ok=True)
+RAW_DIR.mkdir(parents=True, exist_ok=True)
 DIR_640.mkdir(parents=True, exist_ok=True)
 DIR_1024.mkdir(parents=True, exist_ok=True)
 

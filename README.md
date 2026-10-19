@@ -140,6 +140,16 @@ Repozitář pokrývá **všech 65 vysílaných DVB-T2 stanic a rádií v ČR**. 
 
 ---
 
+### 📂 Původ log a zdrojové podklady (Attribution & Raw Sources)
+
+Všechny zdrojové vektory a master PNG podklady před jejich úpravou do flat stylu jsou uloženy a zdokumentovány přímo v repozitáři:
+- **Dokumentace podkladů:** [`source/SOURCES.md`](source/SOURCES.md) – kompletní tabulka zdrojů, URL původců a licencí.
+- **Surové soubory:** [`source/raw/`](source/raw/) – originální SVG a HD PNG mastery před ořezem a obarvením.
+- **Vektorový archiv:** [`source/svg/`](source/svg/) – stovky původních SVG rozdělených podle regionů (CZ-SK, DE-AT, PL, atd.).
+- **Strojový manifest:** [`source/sources.json`](source/sources.json) – strojově čitelná evidence s hex kódy, licencemi a URL původců.
+
+---
+
 ## 🛠️ Validační Pipeline a Testování Kvality
 
 Součástí repozitáře je automatizovaný kontrolní skript [`tools/validate_picons.py`](tools/validate_picons.py), který je spouštěn v rámci GitHub Actions při každém pushi i pull requestu:

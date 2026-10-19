@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Picons Asset Attribution and Source Manifest",
+  "description": "Evidence původu, licencí a původních zdrojových souborů televizních a rozhlasových piconů před úpravou do Marhyho flat stylu.",
+  "version": "1.0.0",
+  "channels": [
+    {
+      "id": "warnertv",
+      "name": "Warner TV",
+      "picon": "warnertv.png",
+      "source_type": "png_hd",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/WarnerTV_2021.png",
+      "local_raw_path": "source/raw/warnertv_raw.png",
+      "license": "Trademark / Logo (Fair Use / Public Domain geometry)",
+      "brand_color": "#002244",
+      "notes": "Oficiální štít WarnerTV z Wikimedia Commons, převeden na bílou siluetu na tmavě modrém pozadí."
+    },
+    {
+      "id": "novakrimi",
+      "name": "Nova Krimi",
+      "picon": "novakrimi.png",
+      "source_type": "png_hd",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Logo_Nova_Krimi.png",
+      "local_raw_path": "source/raw/novakrimi_raw.png",
+      "license": "Trademark / TV Nova",
+      "brand_color": "#800020",
+      "notes": "Vektorová spirála a nápis KRIMI extrahovány z oficiálního brandingu TV Nova na bordó pozadí."
+    },
+    {
+      "id": "jtv",
+      "name": "JTV (Jihočeská televize)",
+      "picon": "jtv.png",
+      "source_type": "png_hd",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_JTV.png",
+      "local_raw_path": "source/raw/jtv_raw.png",
+      "license": "Trademark / Jihočeská televize s.r.o.",
+      "brand_color": "#004b97",
+      "notes": "Oficiální logo JTV s průhledným alfa kanálem převedeno na bílou siluetu na jihočeské modré."
+    },
+    {
+      "id": "jc1",
+      "name": "JČ1 (Jihočeská televize 1)",
+      "picon": "jc1.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://www.jc1.cz/images/J1_strnky.png",
+      "local_raw_path": "source/raw/jc1_raw.png",
+      "license": "Trademark / Jihočeská televize",
+      "brand_color": "#0080c0",
+      "notes": "Vektorově rekonstruovaná typografie JČ s háčkem a bílou kapslí s číslem 1 na azurově modrém pozadí."
+    },
+    {
+      "id": "jc2",
+      "name": "JČ2 (Jihočeská televize 2)",
+      "picon": "jc2.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://www.jc1.cz/",
+      "local_raw_path": "source/raw/jc1_raw.png",
+      "license": "Trademark / Jihočeská televize",
+      "brand_color": "#0080c0",
+      "notes": "Sesterská stanice k JČ1 vytvořená v identickém brandovém layoutu s číslem 2 v kapsli."
+    },
+    {
+      "id": "seznamcztv",
+      "name": "Seznam.cz TV",
+      "picon": "seznamcztv.png",
+      "source_type": "vector_clean",
+      "origin_url": "https://o.seznam.cz/pro-media/loga-ke-stazeni/",
+      "local_raw_path": "640/seznamtv.png",
+      "license": "Trademark / Seznam.cz, a.s.",
+      "brand_color": "#de0a17",
+      "notes": "Oficiální plně nezkrácené logo bílého 'S' Seznamu vycentrované na červeném pozadí #de0a17."
+    },
+    {
+      "id": "ockostar",
+      "name": "ÓČKO STAR",
+      "picon": "ockostar.png",
+      "source_type": "vector_composite",
+      "origin_url": "https://ocko.tv/",
+      "local_raw_path": "source/svg/CZ-SK/ocko.svg",
+      "license": "Trademark / MAFRA a.s. / STANICE O s.r.o.",
+      "brand_color": "#f89c0e",
+      "notes": "Kombinace originálního logotypu ÓČKO v identické velikosti s kanálem Óčko a tučného nápisu STAR na oranžovém pozadí."
+    },
+    {
+      "id": "primasport",
+      "name": "Prima SPORT",
+      "picon": "primasport.png",
+      "source_type": "vector_composite",
+      "origin_url": "https://iprima.cz/",
+      "local_raw_path": "source/svg/CZ-SK/prima.svg",
+      "license": "Trademark / FTV Prima, spol. s r.o.",
+      "brand_color": "#f36917",
+      "notes": "Originální vektorové logo Prima zkombinované s podtitulem SPORT v Marhyho vertikálním rozvržení."
+    },
+    {
+      "id": "a11",
+      "name": "A11 TV",
+      "picon": "a11.png",
+      "source_type": "svg",
+      "origin_url": "https://a11.cz/",
+      "local_raw_path": "generate_missing_picons.py",
+      "license": "Trademark / A 11 s.r.o.",
+      "brand_color": "#0055b8",
+      "notes": "Vektorová křivka stanice A11 z oficiální televizní grafiky na kobaltově modrém pozadí."
+    },
+    {
+      "id": "cropohodat2",
+      "name": "ČRo Pohoda",
+      "picon": "cropohodat2.png",
+      "source_type": "svg",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/%C4%8CRo_Pohoda_Logo_2021.svg",
+      "local_raw_path": "source/raw/cro_pohoda.svg",
+      "license": "Public Domain / Logo ČRo",
+      "brand_color": "#800080",
+      "notes": "Originální SVG křivky Českého rozhlasu Pohoda na purpurovém pozadí."
+    },
+    {
+      "id": "crorzsportt2",
+      "name": "ČRo Radiožurnál Sport",
+      "picon": "crorzsportt2.png",
+      "source_type": "svg",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/%C4%8CRo_Radio%C5%BEurn%C3%A1l_Sport_Logo_2021.svg",
+      "local_raw_path": "source/raw/cro_rz_sport.svg",
+      "license": "Public Domain / Logo ČRo",
+      "brand_color": "#00a651",
+      "notes": "Originální SVG křivky Českého rozhlasu Radiožurnál Sport na zeleném pozadí."
+    },
+    {
+      "id": "radioimpuls",
+      "name": "Rádio Impuls",
+      "picon": "radioimpuls.png",
+      "source_type": "png_hd_master",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/R%C3%A1dio_Impuls.png",
+      "local_raw_path": "source/raw/impuls_raw.png",
+      "license": "Trademark / LONDA spol. s r.o.",
+      "brand_color": "#f5a623",
+      "notes": "Oficiální HD master 1915x756 px z Wikimedia Commons s ostrými konturami maskota i textu na žlutooranžovém pozadí."
+    },
+    {
+      "id": "ceskyimpuls",
+      "name": "Český Impuls",
+      "picon": "ceskyimpuls.png",
+      "source_type": "png_hd",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/%C4%8Cesk%C3%BD_Impuls.png",
+      "local_raw_path": "source/raw/cesky_impuls_raw.png",
+      "license": "Trademark / LONDA spol. s r.o.",
+      "brand_color": "#0b2545",
+      "notes": "Oficiální dvoubarevné rozvržení Českého Impulsu na tmavě modrém pozadí."
+    },
+    {
+      "id": "radiocas",
+      "name": "Radio Čas",
+      "picon": "radiocas.png",
+      "source_type": "svg",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_Radio_%C4%8Cas.svg",
+      "local_raw_path": "source/raw/radio_cas.svg",
+      "license": "Public Domain / Trademark",
+      "brand_color": "#ffc107",
+      "notes": "Originální škálovatelné SVG křivky z Wikimedia Commons na žlutém pozadí."
+    },
+    {
+      "id": "radiocasrock",
+      "name": "Radio Čas Rock",
+      "picon": "radiocasrock.png",
+      "source_type": "svg_composite",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_Radio_%C4%8Cas.svg",
+      "local_raw_path": "source/raw/radio_cas.svg",
+      "license": "Public Domain / Trademark",
+      "brand_color": "#1a1a1a",
+      "notes": "Kombinace originálního SVG Radio Čas s nápisem ROCK na černém pozadí."
+    },
+    {
+      "id": "radiodechovka",
+      "name": "Rádio Dechovka",
+      "picon": "radiodechovka.png",
+      "source_type": "png_hd_master",
+      "origin_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_Radia_Dechovka_s_kmito%C4%8Dty.png",
+      "local_raw_path": "source/raw/dechovka_raw.png",
+      "license": "Trademark / Radio Dechovka s.r.o.",
+      "brand_color": "#800020",
+      "notes": "Extrahováno z originálního masteru 2775x1269 px ořezem nad hranicí y=950 px bez useknutí spodních tahů písmen (d, h, k) a bez rušivých frekvencí."
+    },
+    {
+      "id": "hittv",
+      "name": "Hit TV",
+      "picon": "hittv.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://www.hittelevize.cz/",
+      "local_raw_path": "generate_missing_picons.py",
+      "license": "Trademark / Hit TV",
+      "brand_color": "#d90429",
+      "notes": "Čistý rámeček s tučnou typografií HIT TELEVIZE na karmínově červeném podkladu."
+    },
+    {
+      "id": "abctv",
+      "name": "ABC TV",
+      "picon": "abctv.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://abctv.cz/",
+      "local_raw_path": "generate_missing_picons.py",
+      "license": "Trademark / ABC TV",
+      "brand_color": "#00509d",
+      "notes": "Vektorová typografie ABC TV na modrém pozadí."
+    },
+    {
+      "id": "rockzone1059",
+      "name": "Rock Zone 105.9",
+      "picon": "rockzone1059.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://rockzone.cz/",
+      "local_raw_path": "generate_missing_picons.py",
+      "license": "Trademark / Media Bohemia",
+      "brand_color": "#111111",
+      "notes": "Kombinace bílých nápisů ROCK ZONE s růžovým frekvenčním akcentem 105.9 FM na tmavém pozadí."
+    },
+    {
+      "id": "ukrajinskeradio",
+      "name": "Ukrajinske Radio (Суспільне)",
+      "picon": "ukrajinskeradio.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://suspilne.media/",
+      "local_raw_path": "generate_missing_picons.py",
+      "license": "Public Service / UA:PBC",
+      "brand_color": "#0057b7",
+      "notes": "Ukrajinské národní rádio v modro-žlutém provedení s rámečkem."
+    },
+    {
+      "id": "naladtesenadigitalnivysilanicra",
+      "name": "CRA DVB-T2 Vysílání",
+      "picon": "naladtesenadigitalnivysilanicra.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://cra.cz/",
+      "local_raw_path": "generate_missing_picons.py",
+      "license": "České Radiokomunikace a.s.",
+      "brand_color": "#003366",
+      "notes": "Informační kanál Českých Radiokomunikací s tyrkysovým podtitulem."
+    },
+    {
+      "id": "dbtest1",
+      "name": "Digital Broadcasting Test MUX 24",
+      "picon": "dbtest1.png",
+      "source_type": "vector_reconstructed",
+      "origin_url": "https://multiplex24.cz/",
+      "local_raw_path": "generate_missing_picons.py",
+      "license": "Digital Broadcasting s.r.o.",
+      "brand_color": "#2b2d42",
+      "notes": "Testovací nosič pro MUX 24 vysílaný v pozemní síti."
+    }
+  ]
+}
