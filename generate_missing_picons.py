@@ -180,61 +180,60 @@ def main():
 
     # 6. JČ1 & JČ2 (Jihočeská televize 1 & 2)
     print("\n--- 6. JČ1 & JČ2 ---")
-    jc1_raw = download_file(
-        "https://www.jc1.cz/images/J1_strnky.png",
-        TMP_DIR / "jc1_raw.png"
-    )
-    jc_raw_im = Image.open(jc1_raw).convert("RGBA")
-    mask_jc = Image.new("L", jc_raw_im.size, 0)
-    for x in range(jc_raw_im.width):
-        for y in range(jc_raw_im.height):
-            r, g, b, a = jc_raw_im.getpixel((x, y))
-            if r > 140 and g < 70 and b < 70 and a > 100:
-                mask_jc.putpixel((x, y), 255)
-            elif r > 100 and g < 90 and b < 90 and a > 100:
-                mask_jc.putpixel((x, y), 180)
-    jc_mark = mask_jc.crop(mask_jc.getbbox())
-
     def build_jc_channel(digit):
         for size, out_dir in [(640, DIR_640), (1024, DIR_1024)]:
             scale = size / 640.0
             bg_color = (0, 128, 192, 255)
-            mark_h = int(210 * scale)
-            mark_w = int(jc_mark.width * (mark_h / jc_mark.height))
-            scaled_mark = jc_mark.resize((mark_w, mark_h), Image.Resampling.LANCZOS)
 
+            font_path = "/System/Library/Fonts/Supplemental/Arial Black.ttf"
+            font_size_jc = int(175 * scale)
+            font_jc = ImageFont.truetype(font_path, font_size_jc)
+
+            # Measure JČ text bounds
+            dummy = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+            d_draw = ImageDraw.Draw(dummy)
+            tb_jc = d_draw.textbbox((0, 0), "JČ", font=font_jc)
+            w_jc = tb_jc[2] - tb_jc[0]
+            h_jc = tb_jc[3] - tb_jc[1]
+
+            # Capsule properties
             capsule_w = int(140 * scale)
-            capsule_h = mark_h
-            gap = int(32 * scale)
-            total_w = mark_w + gap + capsule_w
+            capsule_h = int(190 * scale)
+            gap = int(28 * scale)
+            corner_radius = int(36 * scale)
+
+            total_w = w_jc + gap + capsule_w
             start_x = (size - total_w) // 2
-            start_y = (size - mark_h) // 2
+            start_y_capsule = (size - capsule_h) // 2
+            start_y_jc = (size - h_jc) // 2 - tb_jc[1]
 
             canvas = Image.new("RGBA", (size, size), bg_color)
-            white_mark = Image.new("RGBA", (mark_w, mark_h), (255, 255, 255, 255))
-            canvas.paste(white_mark, (start_x, start_y), scaled_mark)
-
-            capsule_x = start_x + mark_w + gap
             draw = ImageDraw.Draw(canvas)
-            corner_radius = int(30 * scale)
+
+            # 1. Clean vector JČ text
+            draw.text((start_x - tb_jc[0], start_y_jc), "JČ", font=font_jc, fill=(255, 255, 255, 255))
+
+            # 2. Rounded white capsule
+            capsule_x = start_x + w_jc + gap
             draw.rounded_rectangle(
-                [capsule_x, start_y, capsule_x + capsule_w, start_y + capsule_h],
+                [capsule_x, start_y_capsule, capsule_x + capsule_w, start_y_capsule + capsule_h],
                 radius=corner_radius,
                 fill=(255, 255, 255, 255)
             )
 
-            font_path = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
-            font_size = int(140 * scale)
-            font = ImageFont.truetype(font_path, font_size)
-            tb = draw.textbbox((0, 0), str(digit), font=font)
-            nw, nh = tb[2] - tb[0], tb[3] - tb[1]
-            num_x = capsule_x + (capsule_w - nw) // 2 - tb[0]
-            num_y = start_y + (capsule_h - nh) // 2 - tb[1] - int(4 * scale)
-            draw.text((num_x, num_y), str(digit), font=font, fill=bg_color)
+            # 3. Cutout number inside capsule
+            font_size_num = int(145 * scale)
+            font_num = ImageFont.truetype(font_path, font_size_num)
+            tb_num = draw.textbbox((0, 0), str(digit), font=font_num)
+            nw = tb_num[2] - tb_num[0]
+            nh = tb_num[3] - tb_num[1]
+            num_x = capsule_x + (capsule_w - nw) // 2 - tb_num[0]
+            num_y = start_y_capsule + (capsule_h - nh) // 2 - tb_num[1]
+            draw.text((num_x, num_y), str(digit), font=font_num, fill=bg_color)
 
             out_path = out_dir / f"jc{digit}.png"
             canvas.save(out_path, "PNG", optimize=True)
-            print(f"  ✨ Generated jc{digit}.png in {out_dir.name}/")
+            print(f"  ✨ Generated jc{digit}.png in {out_dir.name}/ (clean vector JČ, zero artifacts)")
 
     build_jc_channel(1)
     build_jc_channel(2)

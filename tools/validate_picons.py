@@ -279,7 +279,7 @@ def generate_gallery():
     ]
 
     for f in files_640:
-        html.append(f"<div class='card'><img src='../640/{f.name}' loading='lazy'><div class='name'>{f.name}</div></div>")
+        html.append(f"<div class='card'><img src='640/{f.name}' loading='lazy'><div class='name'>{f.name}</div></div>")
 
     html.extend([
         "</div>",
@@ -287,9 +287,12 @@ def generate_gallery():
         "</html>"
     ])
 
+    gallery_content = "\n".join(html)
     with open(gallery_file, "w", encoding="utf-8") as out:
-        out.write("\n".join(html))
-    print(f"✨ Vygenerována interaktivní galerie: {gallery_file}")
+        out.write(gallery_content)
+    with open(REPO_ROOT / "index.html", "w", encoding="utf-8") as out:
+        out.write(gallery_content)
+    print(f"✨ Vygenerována interaktivní galerie: {gallery_file} a {REPO_ROOT / 'index.html'}")
 
 
 # Seznam všech 65 aktivních DVB-T2 stanic pro generování kontaktního listu
