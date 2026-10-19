@@ -58,6 +58,24 @@ Díky GitHub Pages není nutné balíček stahovat ani ručně nahrávat na disk
    * Klikněte na tlačítko **Reset icon** a následně **Save changes**.
 4. Tvheadend automaticky dotáhne loga do své interní paměti cache (`imagecache`), odkud se okamžitě distribuují do Apple TV, Kodi i mobilních klientů.
 
+### ⚠️ Důležité: Vyčištění cache (Imagecache Purge) při každém nasazení
+
+Tvheadend po stažení ikony ukládá soubory do své persistentní diskové mezipaměti (`/home/hts/.hts/tvheadend/imagecache/data/`) a **nikdy je automaticky neobnovuje**, i když se na CDN objeví novější verze pod stejným názvem.
+
+**Při každé vizuální opravě, změně stylu nebo nasazení nových verzí piconů je nutné vyčistit imagecache Tvheadendu:**
+
+* **Přes CaC nástroj v repozitáři `home-infrastructure` (Doporučeno):**
+  ```bash
+  python3 tools/tvheadend_sync.py --purge-imagecache
+  ```
+
+* **Nebo přímo přes SSH na serveru Tvheadend:**
+  ```bash
+  ssh ondrej@10.0.10.22 'sudo bash -c "systemctl stop tvheadend && rm -rf /home/hts/.hts/tvheadend/imagecache/data/* /home/hts/.hts/tvheadend/imagecache/meta/* && systemctl start tvheadend"'
+  ```
+
+Po restartu si Tvheadend okamžitě znovu stáhne aktuální čisté verze všech log z GitHub Pages CDN a rozešle je do připojených klientů (Apple TV TvhClient, Kodi atd.).
+
 ---
 
 ## 📺 Pokrytí stanic (100% stav DVB-T2 v ČR)
