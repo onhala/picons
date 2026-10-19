@@ -131,11 +131,14 @@ ln nationalgeographic.png natgeohdcz.png
 ln natgeowild.png natgeowildhdcz.png
 ln natgeowild.png nationalgeographicwildhdcz.png
 ln nickelodeon.png nickelodeoncz.png
+ln nickelodeon.png nickelodeon_pluto_ua.png
 ln nickjr.png nickjrcz.png
 ln nickjr.png nickjrczech.png
+ln nicktoons.png nicktoonscz.png
 ln cartoonnetwork.png cartoonnetworkcz.png
 ln outdoorchannel.png outdoorchannelhdcz.png
 ln stingrayiconcerts.png stingrayiconcertscz.png
+ln stingrayiconcerts.png iconcert.png
 ln theqyou.png theqyoucz.png
 ln travelchannel.png travelchannelhdcz.png
 ln upnetwork.png upnetworkcz.png
@@ -167,9 +170,10 @@ ln ct3.png ct3hdt2.png
 ln ct24.png ct24hdt2.png
 ln ctd_ctart.png ctdarthdt2.png
 ln ctsport.png ctsporthdt2.png
-ln tvslovacko tvst2.png
+ln tvslovacko.png tvst2.png
 
 ln tvbarrandov.png barrandovtvt2.png
+ln tvbarrandov.png barrandov.png
 ln barrandovkrimi.png barrandovkrimit2.png
 ln newsbarrandov.png barrandovnewst2.png
 ln croddur.png croddurt2.png
@@ -178,6 +182,7 @@ ln crojazz.png crojazzt2.png
 ln croplus.png croplust2.png
 ln croradiojunior.png croradiojuniort2.png
 ln croradiowave.png croradiowavet2.png
+ln croradiowave.png croradiowawe.png
 ln croradiozurnal.png croradiozurnalt2.png
 ln crovltava.png crovltavat2.png
 ln ct1.png ct1hdt2.png
@@ -221,7 +226,44 @@ ln primaplus1.png primaplus1t2.png
 ln csmystery.png csmysteryt2.png
 ln ct1jmhd.png ct1jmhdt2.png
 
-
+#Vodafone CZ
+ln 1plus1.png 1plus1tv.png
+ln 360tunebox.png 360tuneboxhd.png
+ln axn.png axnhd.png
+ln tvbarrandov.png barrandovtv.png
+ln tvbarrandov.png barrandovtvhd.png
+ln brazzerstv.png brazzers.png
+ln cartoonnetwork.png cartoonnetworkhd.png
+ln csfilm.png csfilmcshorrorhd.png
+ln csmystery.png csmysteryhd.png
+ln ct1.png ct1jzchd.png
+ln ct1.png ct1svchd.png
+ln ctd_ctart.png ctdctart.png
+ln ctd_ctart.png ctdhdctarthd.png
+ln discovery.png discoveryhd.png
+ln docubox.png docuboxhd.png
+ln ducktv.png ducktvhd.png
+ln fastandfunbox.png fastandfunhd.png
+ln fightbox.png fightboxhd.png
+ln foodnetwork.png foodnetworkhd.png
+ln france24.png france24hdeng.png
+ln golfchannel.png golfchannelhd.png
+ln leotv.png leotvhd.png
+ln mnam.png mnamtvhd.png
+ln nationalgeographic.png natgeohd.png
+ln natgeowild.png natgeowildhd.png
+ln ockoblack.png ockoblackhd.png
+ln ockoexpres.png ockoexpreshd.png
+ln ocko.png ockohd.png
+ln ockostar.png ockostarhd.png
+ln primakrimi.png primakrimihd.png
+ln primashow.png primashowhd.png
+ln relax.png relaxhd.png
+ln seznamcz.png seznamcztvhd.png
+ln spektrumhome.png spektrumhomehd.png
+ln tlc.png tlchd.png
+ln tvpaprika.png tvpaprikahd.png
+ln zak.png zaktv.png
 
 #International channels
 ln amc.png amchd.png
