@@ -90,14 +90,49 @@ def audit_single_picon(filepath, expected_size):
     box_h = max_y - min_y
     box_w_ratio = box_w / tw
     box_h_ratio = box_h / th
+    max_dim_ratio = max(box_w_ratio, box_h_ratio)
 
-    # 3. Detekce mikroskopického loga
-    if box_w_ratio < 0.30 and box_h_ratio < 0.30:
-        errors.append(ValidationError(filepath.name, "ERR_TOO_SMALL", f"Logo je příliš malé: šířka {box_w_ratio:.1%} canvasu (min. 30%)"))
-    elif box_w_ratio < 0.40:
-        warnings.append(ValidationError(filepath.name, "WARN_SMALL", f"Logo je menší než obvykle: šířka {box_w_ratio:.1%} canvasu (cíl ~65-70%)", is_error=False))
+    # 3. Kontrola jednotného pozadí a okrajů (detekce přetečení z canvasu)
+    c0 = pix[0, 0]
+    c1 = pix[tw - 1, 0]
+    c2 = pix[0, th - 1]
+    c3 = pix[tw - 1, th - 1]
+    is_solid_bg = max(
+        max(abs(c0[i] - c1[i]) for i in range(3)),
+        max(abs(c0[i] - c2[i]) for i in range(3)),
+        max(abs(c0[i] - c3[i]) for i in range(3))
+    ) <= 15
 
-    # 4. Detekce plného neprůhledného bloku bez detailů (chyba maskování)
+    if is_solid_bg:
+        left_m = min_x / tw
+        right_m = (tw - 1 - max_x) / tw
+        top_m = min_y / th
+        bot_m = (th - 1 - max_y) / th
+        min_margin = min(left_m, right_m, top_m, bot_m)
+
+        # Kontrola přetečení (Canvas Overflow) - logo dosahuje přímo na okraj canvasu
+        if min_margin <= 0.01 and max_dim_ratio > 0.94:
+            errors.append(ValidationError(filepath.name, "ERR_CANVAS_OVERFLOW", f"Logo přetéká z canvasu: okraj {min_margin:.1%} (min. 5%), max rozměr {max_dim_ratio:.1%}"))
+        elif min_margin < 0.04:
+            warnings.append(ValidationError(filepath.name, "WARN_MARGIN_TIGHT", f"Těsný okraj loga: min. margin {min_margin:.1%} canvasu (doporučeno >= 8%)", is_error=False))
+
+        # Kontrola vycentrování
+        center_x = (min_x + max_x) / 2.0 / tw
+        center_y = (min_y + max_y) / 2.0 / th
+        if abs(center_x - 0.5) > 0.12 or abs(center_y - 0.5) > 0.12:
+            warnings.append(ValidationError(filepath.name, "WARN_OFF_CENTER", f"Logo není vycentrované: střed [{center_x:.2f}, {center_y:.2f}] (odchylka > 12%)", is_error=False))
+
+        # Detekce velikosti a sjednocení měřítka (pouze pro plná pozadí)
+        if max_dim_ratio > 0.85:
+            warnings.append(ValidationError(filepath.name, "WARN_LARGE", f"Logo je neobvykle veliké: max rozměr {max_dim_ratio:.1%} canvasu (cíl ~65-72%)", is_error=False))
+
+    # 4. Detekce mikroskopického loga
+    if max_dim_ratio < 0.30:
+        errors.append(ValidationError(filepath.name, "ERR_TOO_SMALL", f"Logo je mikroskopické: max rozměr {max_dim_ratio:.1%} canvasu (min. 30%)"))
+    elif max_dim_ratio < 0.40:
+        warnings.append(ValidationError(filepath.name, "WARN_SMALL", f"Logo je menší než obvykle: max rozměr {max_dim_ratio:.1%} canvasu (cíl ~65-72%)", is_error=False))
+
+    # 5. Detekce plného neprůhledného bloku bez detailů (chyba maskování)
     if box_w_ratio > 0.45 and box_h_ratio > 0.45:
         cropped_box = thumb.crop((min_x, min_y, max_x, max_y)).convert("RGB")
         stat = ImageStat.Stat(cropped_box)
