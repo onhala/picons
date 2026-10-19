@@ -1,0 +1,49 @@
+name: "📺 Žádost o novou stanici (New Channel Request)"
+description: "Navrhněte přidání nové TV nebo rozhlasové stanice do balíčku piconů"
+title: "[Nová stanice]: "
+labels: ["enhancement", "new channel"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Děkujeme za podnět! Vyplňte prosím níže uvedené informace pro usnadnění vytvoření piconu.
+  - type: input
+    id: channel_name
+    attributes:
+      label: "Název stanice"
+      description: "Oficiální název TV nebo rádiového kanálu (např. 'Nova Sport 5', 'ČRo Jazz')"
+      placeholder: "např. Nova Sport 5"
+    validations:
+      required: true
+  - type: input
+    id: snp_name
+    attributes:
+      label: "Požadovaný SNP název souboru"
+      description: "Malá písmena bez mezer a diakritiky (např. 'novasport5.png')"
+      placeholder: "např. novasport5.png"
+    validations:
+      required: true
+  - type: input
+    id: provider
+    attributes:
+      label: "Multiplex / Vysílatel / Poskytovatel"
+      description: "V jaké síti stanice vysílá? (DVB-T2 MUX 24, Skylink, Vodafone TV, O2 TV, atd.)"
+      placeholder: "např. DVB-T2 MUX 24"
+    validations:
+      required: false
+  - type: input
+    id: logo_url
+    attributes:
+      label: "Odkaz na oficiální logo (SVG / HD PNG)"
+      description: "Odkaz na Wikimedia Commons, oficiální web nebo tiskový media kit stanice."
+      placeholder: "https://upload.wikimedia.org/..."
+    validations:
+      required: true
+  - type: input
+    id: color_hex
+    attributes:
+      label: "Doporučená barva pozadí (HEX)"
+      description: "Dominantní barva značky stanice (např. #003366)"
+      placeholder: "např. #003366"
+    validations:
+      required: false

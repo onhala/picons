@@ -1,0 +1,33 @@
+name: "🐛 Hlášení chyby piconu (Broken / Outdated Logo)"
+description: "Nahlaste neaktuální, rozmazané, oříznuté nebo chybějící logo stanice"
+title: "[Chyba piconu]: "
+labels: ["bug", "quality"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pokud má některá stanice oříznuté logo, starý rebranding nebo nízké rozlišení, pomozte nám ji opravit!
+  - type: input
+    id: picon_name
+    attributes:
+      label: "Název souboru piconu"
+      description: "Jak se soubor jmenuje v repozitáři (např. 'jc1.png', 'warnertv.png')"
+      placeholder: "např. jc1.png"
+    validations:
+      required: true
+  - type: textarea
+    id: issue_desc
+    attributes:
+      label: "Popis problému"
+      description: "Co je na logu špatně? (např. 'stanice změnila logo v roce 2026', 'písmeno je useknuté', 'chlupaté okraje')"
+      placeholder: "Podrobný popis vady..."
+    validations:
+      required: true
+  - type: input
+    id: correct_logo_url
+    attributes:
+      label: "Odkaz na správné / aktuální logo"
+      description: "Odkaz na aktuální oficiální vektor nebo tiskovou zprávu o rebrandingu"
+      placeholder: "https://..."
+    validations:
+      required: false

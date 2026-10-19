@@ -13,6 +13,7 @@ Provádí exaktní geometrické, kolorimetrické a strukturální testy všech T
 
 import os
 import sys
+import json
 import math
 import argparse
 from pathlib import Path
@@ -206,6 +207,24 @@ def validate_all(fix=False):
                     if not (DIR_640 / src).exists():
                         all_warnings.append(ValidationError(src, "WARN_HARDLINK_SRC", f"Řádek {line_no}: Zdroj {src} neexistuje v 640/", is_error=False))
 
+    # 5. Kontrola manifestu zdrojů source/sources.json
+    sources_json_path = REPO_ROOT / "source" / "sources.json"
+    if sources_json_path.exists():
+        print("🔍 Kontrola manifestu zdrojů source/sources.json...")
+        try:
+            with open(sources_json_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            channels = data.get("channels", [])
+            for ch in channels:
+                picon = ch.get("picon")
+                if picon and not (DIR_640 / picon).exists():
+                    all_errors.append(ValidationError(picon, "ERR_SOURCES_PICON_MISSING", "Manifest sources.json odkazuje na neexistující picon v 640/"))
+                raw_path = ch.get("local_raw_path")
+                if raw_path and not (REPO_ROOT / raw_path).exists():
+                    all_warnings.append(ValidationError(raw_path, "WARN_SOURCES_RAW_MISSING", f"Manifest sources.json odkazuje na neexistující raw podklad: {raw_path}", is_error=False))
+        except Exception as e:
+            all_errors.append(ValidationError("source/sources.json", "ERR_SOURCES_JSON", f"Neplatný JSON manifest: {e}"))
+
     # Výsledky
     print("\n" + "=" * 65)
     print("📋 SOUHRNNÉ VÝSLEDKY TESTŮ")
@@ -347,9 +366,37 @@ def generate_contact_sheet():
 
 def main():
     parser = argparse.ArgumentParser(description="Picons Quality Assurance Validator")
+    parser.add_argument("--file", type=str, help="Otestovat pouze jeden konkrétní picon (rychlý audit jednoho souboru)")
     parser.add_argument("--fix", action="store_true", help="Automaticky opravit paritu a rozměry")
     parser.add_argument("--gallery", action="store_true", help="Vygenerovat HTML galerii a kontaktní list")
     args = parser.parse_args()
+
+    if args.file:
+        target = Path(args.file)
+        if not target.exists():
+            # Try finding in 640/ or 1024/
+            if (DIR_640 / target.name).exists():
+                target = DIR_640 / target.name
+            elif (DIR_1024 / target.name).exists():
+                target = DIR_1024 / target.name
+            else:
+                print(f"❌ Soubor nenalezen: {args.file}")
+                sys.exit(1)
+        expected_size = 640 if "640" in str(target.parent) else 1024
+        print(f"🔍 Rychlý audit: {target} (očekávaný rozměr: {expected_size}x{expected_size})")
+        errs, warns = audit_single_picon(target, expected_size)
+        if warns:
+            print("⚠️ Varování:")
+            for w in warns:
+                print(f"  • {w}")
+        if errs:
+            print("❌ Chyby:")
+            for e in errs:
+                print(f"  • {e}")
+            sys.exit(1)
+        else:
+            print("✅ Picon je 100% v pořádku!")
+            sys.exit(0)
 
     success = validate_all(fix=args.fix)
     if args.gallery or success:
